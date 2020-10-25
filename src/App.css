@@ -1,38 +1,168 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: #e2f3f5;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #e2f3f5;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    width: 540px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media (min-width: 768px) {
+  .container {
+    width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container {
+    width: 1300px;
+  }
+}
+
+.nav {
+  background: #0e153a;
+  padding: 1rem 0;
+}
+
+.nav .nav-wrapper {
+  width: 80vw;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.nav .nav-wrapper .brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.nav .nav-wrapper .nav-list {
+  display: flex;
+}
+
+.nav .nav-wrapper .nav-list .nav-list-item {
+  margin: 0 1rem;
+}
+
+.nav .nav-wrapper .nav-list .nav-list-item a:hover,
+.nav .nav-wrapper .nav-list .nav-list-item a.active {
+  transition: all 0.3s ease-in-out;
+  color: #22d1ee;
+}
+
+.home-screen .home-header {
+  padding: 5rem 0;
+  text-align: center;
+  color: #0e153a;
+  font-size: 1.5rem;
+}
+
+.home-screen .container .search-bar {
+  padding: 1rem;
+  background: #3d5af1;
+  margin-bottom: 3rem;
+}
+
+.home-screen .container .search-bar .search-bar-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.home-screen .container .search-bar .search-bar-wrapper .search-group label {
+  margin-right: 1rem;
   color: white;
+  font-size: 1.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.home-screen .container .search-bar .search-bar-wrapper .search-group input,
+.home-screen .container .search-bar .search-bar-wrapper .search-group select {
+  padding: 0.5rem;
+  border: none;
+  margin-right: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.home-screen .container .table-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-screen .container .table-wrapper table {
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+}
+
+.home-screen .container .table-wrapper table thead tr th {
+  background: #0e153a;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+}
+
+.home-screen .container .table-wrapper table tbody tr td {
+  text-align: center;
+  padding: 1rem 2rem;
+  background: #e2f3f5;
+}
+
+.pagination {
+  margin-bottom: 2rem;
+}
+
+.pagination .pagination-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination .pagination-wrapper .page-item {
+  background: #e2f3f5;
+}
+
+.pagination .pagination-wrapper .page-item .page-button {
+  cursor: pointer;
+  padding: 0.4rem;
+  margin: 0 0.2rem;
+  border: none;
+  background: white;
+  color: #3d5af1;
+}
+
+.pagination .pagination-wrapper .page-item .page-button.active {
+  background: #3d5af1;
+  color: white;
 }

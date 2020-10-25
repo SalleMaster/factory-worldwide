@@ -1,0 +1,24 @@
+.pagination {
+  margin-bottom: 2rem;
+
+  .pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    .page-item {
+      background: $light;
+      .page-button {
+        cursor: pointer;
+        padding: 0.4rem;
+        margin: 0 0.2rem;
+        border: none;
+        background: white;
+        color: $primary;
+
+        &.active {
+          background: $primary;
+          color: white;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+.home-screen {
+  .home-header {
+    padding: 5rem 0;
+    text-align: center;
+    color: $dark;
+    font-size: 1.5rem;
+  }
+
+  .container {
+    .search-bar {
+      padding: 1rem;
+      background: $primary;
+      margin-bottom: 3rem;
+
+      .search-bar-wrapper {
+        display: flex;
+        justify-content: space-around;
+
+        .search-group {
+          label {
+            margin-right: 1rem;
+            color: white;
+            font-size: 1.5rem;
+          }
+
+          input,
+          select {
+            padding: 0.5rem;
+            border: none;
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+
+    .table-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      table {
+        padding: 2rem;
+        background: white;
+        border-radius: 20px;
+
+        thead {
+          tr {
+            th {
+              background: $dark;
+              color: white;
+              padding: 0.5rem 1rem;
+              font-weight: 500;
+            }
+          }
+        }
+
+        tbody {
+          tr {
+            td {
+              text-align: center;
+              padding: 1rem 2rem;
+              background: $light;
+            }
+          }
+        }
+      }
+    }
+  }
+}
