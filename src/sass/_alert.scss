@@ -1,0 +1,18 @@
+.alert {
+  padding: 1rem;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+
+  i {
+    margin-right: 1rem;
+  }
+
+  &.success {
+    background: rgb(188, 250, 188);
+    color: darkgreen;
+  }
+  &.fail {
+    background: rgb(248, 167, 167);
+    color: darkred;
+  }
+}

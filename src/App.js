@@ -5,6 +5,7 @@ import './App.css';
 
 // Components
 import Nav from './components/Nav';
+import Footer from './components/Footer';
 
 // Screens
 import AddDataScreen from './screens/AddDataScreen';
@@ -18,6 +19,7 @@ function App() {
         <Route path='/add-data-screen' component={AddDataScreen} exact />
         <Route path='/' component={HomeScreen} exact />
       </main>
+      <Footer />
     </Router>
   );
 }

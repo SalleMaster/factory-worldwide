@@ -8,6 +8,12 @@ body {
   background: #e2f3f5;
 }
 
+body #root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 ul {
   list-style: none;
 }
@@ -15,6 +21,10 @@ ul {
 a {
   text-decoration: none;
   color: #e2f3f5;
+}
+
+main {
+  margin-bottom: 3rem;
 }
 
 .container {
@@ -84,6 +94,14 @@ a {
   color: #22d1ee;
 }
 
+.footer {
+  background: #0e153a;
+  color: #e2f3f5;
+  padding: 1rem 0;
+  text-align: center;
+  margin-top: auto;
+}
+
 .home-screen .home-header {
   padding: 5rem 0;
   text-align: center;
@@ -140,6 +158,84 @@ a {
   background: #e2f3f5;
 }
 
+.add-data-screen .add-data-header {
+  padding: 5rem 0;
+  text-align: center;
+  color: #0e153a;
+  font-size: 1.5rem;
+}
+
+.add-data-screen .container .form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.add-data-screen .container .form-wrapper form {
+  min-width: 600px;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 10px;
+  color: #3d5af1;
+}
+
+.add-data-screen .container .form-wrapper form h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.add-data-screen .container .form-wrapper form .form-group {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-data-screen .container .form-wrapper form .form-group label {
+  margin-bottom: 0.5rem;
+}
+
+.add-data-screen .container .form-wrapper form .form-group input {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: none;
+  background: #e2f3f5;
+  color: #0e153a;
+}
+
+.add-data-screen .container .form-wrapper form .form-group input:focus {
+  outline: #3d5af1 solid 1px;
+}
+
+.add-data-screen .container .form-wrapper form .form-group.checkbox {
+  align-items: center;
+  flex-direction: row;
+}
+
+.add-data-screen .container .form-wrapper form .form-group.checkbox label {
+  margin-right: 1rem;
+}
+
+.add-data-screen .container .form-wrapper form .form-group.checkbox input {
+  width: 13px;
+  height: 13px;
+}
+
+.add-data-screen .container .form-wrapper form button {
+  border: none;
+  outline: none;
+  background: #0e153a;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.add-data-screen .container .form-wrapper form button:hover, .add-data-screen .container .form-wrapper form button:active {
+  background: #182463;
+}
+
 .pagination {
   margin-bottom: 2rem;
 }
@@ -165,4 +261,24 @@ a {
 .pagination .pagination-wrapper .page-item .page-button.active {
   background: #3d5af1;
   color: white;
+}
+
+.alert {
+  padding: 1rem;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.alert i {
+  margin-right: 1rem;
+}
+
+.alert.success {
+  background: #bcfabc;
+  color: darkgreen;
+}
+
+.alert.fail {
+  background: #f8a7a7;
+  color: darkred;
 }

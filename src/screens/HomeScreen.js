@@ -10,7 +10,7 @@ const HomeScreen = () => {
   const [searchBy, setSearchBy] = useState('fullName');
   const [currentDocs, setCurrentDocs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [docsPerPage, setDocsPerPage] = useState(2);
+  const [docsPerPage, setDocsPerPage] = useState(5);
 
   // Get current docs
   const indexOfLast = currentPage * docsPerPage;
@@ -24,9 +24,9 @@ const HomeScreen = () => {
 
       // Search
       newDocs = handleSearchBy(searchBy, keyword, newDocs);
-      // if (currentPage > newDocs.length / docsPerPage) {
-      //   setCurrentPage(1);
-      // }
+      if (currentPage > Math.ceil(newDocs.length / docsPerPage)) {
+        setCurrentPage(1);
+      }
 
       setCurrentDocs([...newDocs]);
     }
@@ -104,11 +104,13 @@ const HomeScreen = () => {
             <div className='search-group'>
               <label className='search-label'>Limit:</label>
               <select onChange={(e) => setDocsPerPage(e.target.value)}>
-                <option value='2' defaultValue>
-                  2
+                <option value='5' defaultValue>
+                  5
                 </option>
-                <option value='5'>5</option>
                 <option value='10'>10</option>
+                <option value='20'>20</option>
+                <option value='50'>50</option>
+                <option value='100'>100</option>
               </select>
             </div>
           </div>

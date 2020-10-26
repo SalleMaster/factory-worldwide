@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import addDataFirestore from '../hooks/addDataFirestore';
+import Alert from '../components/Alert';
 
 const AddDataScreen = () => {
   const [fullName, setFullName] = useState('');
@@ -8,6 +9,11 @@ const AddDataScreen = () => {
   const [registered, setRegistered] = useState(false);
   const [state, setState] = useState('');
   const [country, setCountry] = useState('');
+  const [alert, setAlert] = useState({
+    showAlert: false,
+    status: '',
+    message: '',
+  });
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -20,7 +26,7 @@ const AddDataScreen = () => {
       country,
     };
 
-    addDataFirestore(data);
+    addDataFirestore(data, setAlert);
 
     setFullName('');
     setBalance(0);
@@ -30,17 +36,32 @@ const AddDataScreen = () => {
     setCountry('');
   };
 
+  useEffect(() => {
+    if (alert.showAlert) {
+      setTimeout(() => {
+        setAlert({
+          showAlert: false,
+          success: '',
+          message: '',
+        });
+      }, 5000);
+    }
+  }, [alert, setAlert]);
+
   return (
     <div className='add-data-screen'>
       <header className='add-data-header'>
-        <h1>Ovde Možete Dodati Podatak</h1>
+        <h1>Add Users Data</h1>
       </header>
       <div className='container'>
-        <form onSubmit={submitHandler}>
-          <h3>Dodaj Podatak</h3>
-          <div className='form-group'>
-            <label className='form-label'>
-              Full Name:
+        {alert.showAlert && (
+          <Alert status={alert.status} message={alert.message} />
+        )}
+        <div className='form-wrapper'>
+          <form onSubmit={submitHandler}>
+            <h3>Add User</h3>
+            <div className='form-group'>
+              <label className='form-label'>Full Name:</label>
               <input
                 required
                 type='text'
@@ -48,11 +69,9 @@ const AddDataScreen = () => {
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
               />
-            </label>
-          </div>
-          <div className='form-group'>
-            <label className='form-label'>
-              Balance:
+            </div>
+            <div className='form-group'>
+              <label className='form-label'>Balance:</label>
               <input
                 required
                 type='number'
@@ -60,33 +79,27 @@ const AddDataScreen = () => {
                 value={balance}
                 onChange={(e) => setBalance(Number(e.target.value))}
               />
-            </label>
-          </div>
-          <div className='form-group'>
-            <label className='form-label'>
-              Is Active:
+            </div>
+            <div className='form-group checkbox'>
+              <label className='form-label'>Is Active:</label>
               <input
                 type='checkbox'
                 name='isActive'
                 checked={isActive}
                 onChange={(e) => setIsActive(e.target.checked)}
               />
-            </label>
-          </div>
-          <div className='form-group'>
-            <label className='form-label'>
-              Registered:
+            </div>
+            <div className='form-group checkbox'>
+              <label className='form-label'>Registered:</label>
               <input
                 type='checkbox'
                 name='registered'
                 checked={registered}
                 onChange={(e) => setRegistered(e.target.checked)}
               />
-            </label>
-          </div>
-          <div className='form-group'>
-            <label className='form-label'>
-              State:
+            </div>
+            <div className='form-group'>
+              <label className='form-label'>State:</label>
               <input
                 required
                 type='text'
@@ -94,11 +107,9 @@ const AddDataScreen = () => {
                 value={state}
                 onChange={(e) => setState(e.target.value)}
               />
-            </label>
-          </div>
-          <div className='form-group'>
-            <label className='form-label'>
-              Country:
+            </div>
+            <div className='form-group'>
+              <label className='form-label'>Country:</label>
               <input
                 required
                 type='text'
@@ -106,10 +117,10 @@ const AddDataScreen = () => {
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
               />
-            </label>
-          </div>
-          <button type='submit'>Dodaj</button>
-        </form>
+            </div>
+            <button type='submit'>Dodaj</button>
+          </form>
+        </div>
       </div>
     </div>
   );
